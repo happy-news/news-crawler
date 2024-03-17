@@ -11,8 +11,8 @@ COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Create a non-root user and switch to it
-RUN useradd -m myuser
-USER myuser
+RUN useradd -u 10001 -m myuser
+USER 10001
 
 # Run crawler.py when the container launches
 CMD ["python", "crawler.py"]
